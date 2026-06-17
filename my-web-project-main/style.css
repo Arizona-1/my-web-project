@@ -1,0 +1,126 @@
+/* Запобігає непередбачуваним overflow при додаванні padding */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Відступи для кращого відображення контенту на мобільних  */
+main {
+  padding: 0 15px;
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: row;
+  }
+}
+.projects-container {
+  display: grid;
+  /* auto-fit автоматично підлаштовує кількість колонок */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 1200px) {
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+:root {
+  --primary-color: #2563eb;
+  --text-color: #1e293b;
+  --bg-color: #f8fafc;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: sans-serif;
+  transition: background-color 0.3s, color 0.3s; /* Плавна зміна теми */
+}
+
+h1 {
+  color: var(--primary-color);
+}
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.2;
+}
+h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+a:focus,
+button:focus {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+main {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+/* Частина 3. Перемикач теми */
+.dark-theme {
+  background-color: #111;
+  color: #fff;
+}
+
+/* Частина 4. Модальне вікно */
+.modal {
+  display: none; /* За замовчуванням приховане */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий фон */
+  z-index: 1000;
+}
+
+/* Клас, який додається через JS для показу вікна */
+.modal.is-open {
+  display: block;
+}
+
+/* Контент всередині модального вікна */
+.modal-content {
+  background-color: #black;
+  color: #000; /* Щоб текст форми було видно на білому фоні */
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Стиль для білого фону вікна в темній темі (щоб не зливався) */
+.dark-theme .modal-content {
+  background-color: #fff;
+  color: #000;
+}
