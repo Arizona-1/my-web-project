@@ -28,10 +28,32 @@ nav ul {
   }
 }
 
+#search-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+}
+
+.project-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dark-theme .project-card {
+  background-color: #222;
+  border-color: #444;
 }
 
 .project-card:hover {
